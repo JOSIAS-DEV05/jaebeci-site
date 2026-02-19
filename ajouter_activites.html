@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Ajouter une activité</title>
+</head>
+<p><a href="logout.php">Se déconnecter</a></p>
+
+<body>
+  <h2>Nouvelle activité</h2>
+  <form action="ajouter_activite.php" method="POST" enctype="multipart/form-data">
+    <input type="text" name="titre" placeholder="Titre" required><br>
+    <textarea name="description" placeholder="Description" required></textarea><br>
+    <input type="date" name="date_activite"><br>
+    <input type="file" name="image"><br>
+    <button type="submit">Ajouter</button>
+  </form>
+</body>
+</html>
