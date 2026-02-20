@@ -38,7 +38,7 @@ section.show-section{
 }
 
 .container{
-    max-width:1200px;
+    max-width:1400px;
     margin:auto;
 }
 
@@ -78,8 +78,11 @@ section.show-section{
 
 .navbar ul {
     display: flex;
-    gap: 25px;
+    gap: 15px;
     list-style: none;
+    flex-wrap: wrap; 
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .navbar a {
@@ -88,6 +91,8 @@ section.show-section{
     font-weight: 500;
     position: relative;
     transition: 0.3s;
+    font-size: 14px; 
+    white-space: nowrap;
 }
 
 .navbar a::after {
@@ -125,8 +130,9 @@ section h2::after{
 .btn-nav-don {
     background: white;
     color: #ff6600 !important;
-    padding: 8px 18px;
+    padding: 6px 14px;
     border-radius: 20px;
+    font-size: 13px;
 }
 
 .btn-nav-don:hover {
