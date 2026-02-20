@@ -269,14 +269,22 @@ section h2::after{
 }
 .moyen:hover{ transform:translateY(-10px); }
 
-.btn-don{
-  display:inline-block;
-  margin-top:30px;
-  padding:15px 35px;
-  background:#ff9800;
-  color:white;
-  border-radius:30px;
-  text-decoration:none;
+.btn-don {
+    background: linear-gradient(45deg, #ff6600, #ff9900);
+    color: white;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.btn-don:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.3);
 }
 
 /* ================= FOOTER ================= */
