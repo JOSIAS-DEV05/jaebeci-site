@@ -360,7 +360,37 @@
         </div>
       </div>
   
-      <a href="#formulaire-don" class="btn-don">Faire un don en ligne</a>
+      <!-- Flutterwave Script -->
+<script src="https://checkout.flutterwave.com/v3.js"></script>
+
+<!-- Bouton -->
+<button class="btn-don" onclick="makePayment()">Faire un don</button>
+
+<script>
+function makePayment() {
+  FlutterwaveCheckout({
+    public_key: "FLWPUBK_TEST-b969035f31fdaf4284b8651975b9c711-X", // remplace par ta clé publique
+    tx_ref: "don-" + Date.now(),
+    amount: 5000,
+    currency: "XOF",
+    payment_options: "card, mobilemoney, ussd",
+    customer: {
+      email: "donateur@email.com",
+      phone_number: "225XXXXXXXX",
+      name: "Donateur"
+    },
+    callback: function (data) {
+      console.log(data);
+      alert("Merci pour votre don !");
+    },
+    customizations: {
+      title: "JAEBECI",
+      description: "Don pour soutenir l'association",
+      logo: "https://josias-dev05.github.io/jaebeci-site/logo.jpg"
+    }
+  });
+}
+</script>
     </div>
   </section>
   
