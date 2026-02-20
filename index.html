@@ -356,6 +356,7 @@
         <p>Après le lancement des festivités, place au COLLOQUE sur la J-AEBECI après 50 ans d'existence. Parce que 50 ans représentent la grande partie d'une existence, il est impératif pour nous de mener des réflexions profondes sur la vie du mouvement, en vue d'une plus grande croissance.</p>
         <span class="date">03-06 Avril 2026</span>
         <span> Village Baptiste de Bouaké, Côte d'Ivoire </span>
+        <button class="btn-inscription">S’inscrire</button>
       </div>
 
       <div class="actualite">
@@ -364,6 +365,7 @@
         <p>Festivités éclatées des 50 ans d'héritage.</p>
         <span class="date">02 MAI 2026</span>
         <span> Korhogo, Côte d'Ivoire </span>
+        <button class="btn-inscription">S’inscrire</button>
       </div>
 
       <div class="actualite">
@@ -371,6 +373,7 @@
         <h4>SEMAINE DE LA J-AEBECI</h4>
         <p>Une semaine réservée pour apporter l'évangile à travers des actions sociales.</p>
         <span class="date">01-07 Juin 2026</span>
+        <button class="btn-inscription">S’inscrire</button>
       </div>
 
     </div>
@@ -544,6 +547,53 @@ window.addEventListener("scroll", () => {
             link.classList.add("active");
         }
     });
+});
+</script>
+
+<div class="modal" id="event-modal">
+  <div class="modal-content">
+    <span class="close-event">&times;</span>
+    <h3>Inscription à l'événement</h3>
+
+    <form id="event-form">
+      <input type="text" placeholder="Nom complet" required>
+      <input type="text" placeholder="Église" required>
+      <input type="tel" placeholder="Téléphone" required>
+      <button type="submit">Valider l’inscription</button>
+    </form>
+
+    <p id="event-confirmation" style="display:none; color:green; margin-top:10px;">
+      ✅ Inscription enregistrée avec succès !
+    </p>
+  </div>
+</div>
+<script>
+const eventModal = document.getElementById('event-modal');
+const openBtns = document.querySelectorAll('.btn-inscription');
+const closeEvent = document.querySelector('.close-event');
+const eventForm = document.getElementById('event-form');
+const eventConfirmation = document.getElementById('event-confirmation');
+
+openBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    eventModal.style.display = 'flex';
+  });
+});
+
+closeEvent.addEventListener('click', () => {
+  eventModal.style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+  if (e.target === eventModal) {
+    eventModal.style.display = 'none';
+  }
+});
+
+eventForm.addEventListener('submit', function(e){
+  e.preventDefault();
+  eventConfirmation.style.display = 'block';
+  eventForm.reset();
 });
 </script>
 
