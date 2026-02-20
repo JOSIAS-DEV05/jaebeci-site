@@ -386,3 +386,52 @@ section {
 
   .apropos-content{ flex-direction:column; text-align:center; }
 }
+
+.section-actualites{
+  background: linear-gradient(135deg,#eef7ff,#dfefff);
+  padding: 100px 20px;
+}
+
+.actualites-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+
+.actualite{
+  background:white;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  transition:.4s;
+  text-align:center;
+  padding-bottom:15px;
+}
+
+.actualite img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+
+.actualite:hover{
+  transform:scale(1.03);
+}
+
+.actualite h4{
+  margin:15px 0 10px;
+  color:#2c3e50;
+}
+
+.actualite p{
+  padding:0 15px;
+  font-size:15px;
+  color:#555;
+}
+
+.actualite .date{
+  display:block;
+  margin-top:10px;
+  color:#ff6600;
+  font-weight:bold;
+}
