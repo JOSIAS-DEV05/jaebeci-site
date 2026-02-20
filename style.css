@@ -493,3 +493,36 @@ section {
   color: #ff6600;
   transform: scale(1.2);
 }
+
+.btn-inscription{
+  background:#ff6600;
+  color:white;
+  border:none;
+  padding:8px 15px;
+  border-radius:20px;
+  margin-top:10px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn-inscription:hover{
+  background:#e65c00;
+}
+
+#event-modal .modal-content input{
+  width:100%;
+  margin:10px 0;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+
+#event-modal .modal-content button{
+  width:100%;
+  padding:10px;
+  background:#2c3e50;
+  color:white;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+}
