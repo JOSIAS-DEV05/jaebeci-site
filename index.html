@@ -634,7 +634,60 @@ window.addEventListener('click', (e) => {
   }
 });
 </script>
+<section class="section-stats">
+  <div class="container stats-grid">
+    <div class="stat">
+      <h3 class="counter" data-target="2500">0</h3>
+      <p>Jeunes membres</p>
+    </div>
 
+    <div class="stat">
+      <h3 class="counter" data-target="45">0</h3>
+      <p>Églises locales</p>
+    </div>
+
+    <div class="stat">
+      <h3 class="counter" data-target="120">0</h3>
+      <p>Événements organisés</p>
+    </div>
+
+    <div class="stat">
+      <h3 class="counter" data-target="20">0</h3>
+      <p>Années d'existence</p>
+    </div>
+  </div>
+</section>
+<script>
+const counters = document.querySelectorAll('.counter');
+const speed = 200;
+
+function animateCounters() {
+  counters.forEach(counter => {
+    const updateCount = () => {
+      const target = +counter.getAttribute('data-target');
+      const count = +counter.innerText;
+      const increment = target / speed;
+
+      if (count < target) {
+        counter.innerText = Math.ceil(count + increment);
+        setTimeout(updateCount, 20);
+      } else {
+        counter.innerText = target;
+      }
+    };
+    updateCount();
+  });
+}
+
+let statsSection = document.querySelector('.section-stats');
+
+window.addEventListener('scroll', () => {
+  const sectionTop = statsSection.offsetTop - window.innerHeight + 100;
+  if(window.scrollY > sectionTop){
+    animateCounters();
+  }
+});
+</script>
 <footer class="footer">
   <p>© 2026 J-AEBECI | Tous droits réservés</p>
   
