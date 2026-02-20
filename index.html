@@ -341,9 +341,15 @@
   
 
   <section id="dons" class="section-dons">
-    <div class="container">
-      <h2>Faire un Don</h2>
-      <p class="intro">Soutenez les actions de l'association en contribuant financièrement. Chaque don est une semence pour l'œuvre de Dieu.</p>
+    <div class="don-container">
+      <h2>Soutenez la JAEBECI</h2>
+      <input type="number" id="montant" placeholder="Entrez le montant (XOF)" min="100" />
+
+    <button class="btn-don" onclick="makePayment()">
+        Faire un don
+    </button>
+
+    <p id="message"></p>
   
       <div class="don-moyens">
         <div class="moyen">
@@ -363,32 +369,40 @@
       <!-- Flutterwave Script -->
 <script src="https://checkout.flutterwave.com/v3.js"></script>
 
-<!-- Bouton -->
-<button class="btn-don" onclick="makePayment()">Faire un don</button>
-
 <script>
 function makePayment() {
-  FlutterwaveCheckout({
-    public_key: "FLWPUBK_TEST-b969035f31fdaf4284b8651975b9c711-X", // remplace par ta clé publique
-    tx_ref: "don-" + Date.now(),
-    amount: 5000,
-    currency: "XOF",
-    payment_options: "card, mobilemoney, ussd",
-    customer: {
-      email: "donateur@email.com",
-      phone_number: "225XXXXXXXX",
-      name: "Donateur"
-    },
-    callback: function (data) {
-      console.log(data);
-      alert("Merci pour votre don !");
-    },
-    customizations: {
-      title: "JAEBECI",
-      description: "Don pour soutenir l'association",
-      logo: "https://josias-dev05.github.io/jaebeci-site/logo.jpg"
+
+    let montant = document.getElementById("montant").value;
+
+    if (!montant || montant < 100) {
+        document.getElementById("message").innerHTML =
+        "Veuillez entrer un montant valide (minimum 100 XOF).";
+        return;
     }
-  });
+
+    FlutterwaveCheckout({
+        public_key: "FLWPUBK_TEST-b969035f31fdaf4284b8651975b9c711-X", // 🔴 remplace par ta clé publique
+        tx_ref: "JAEBECI-" + Date.now(),
+        amount: montant,
+        currency: "XOF",
+        payment_options: "card, mobilemoney, ussd",
+        customer: {
+            email: "donateur@email.com",
+            phone_number: "225XXXXXXXX",
+            name: "Donateur"
+        },
+        callback: function (response) {
+            if (response.status === "successful") {
+                document.getElementById("message").innerHTML =
+                "✅ Merci pour votre don de " + montant + " XOF !";
+            }
+        },
+        customizations: {
+            title: "JAEBECI",
+            description: "Don pour soutenir l'association",
+            logo: "https://josias-dev05.github.io/jaebeci-site/logo.jpg"
+        }
+    });
 }
 </script>
     </div>
