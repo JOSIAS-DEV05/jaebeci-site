@@ -30,8 +30,10 @@
         <li><a href="#historique" class="nav-link">Historique</a></li>
         <li><a href="#nos-presidents" class="nav-link">Présidents</a></li>
         <li><a href="#activites" class="nav-link">Activités</a></li>
-        <li><a href="#actualites" class="nav-link">Actualités / Événements</a></li>
         <li><a href="#statuts-reglements" class="nav-link">Statuts</a></li>
+        <li><a href="#actualites" class="nav-link">Actualités / Événements</a></li>
+        <li><a href="#galerie" class="nav-link">Galerie</a></li>
+        <li><a href="#blog" class="nav-link">Blog</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
         <li><a href="#dons" class="nav-link btn-nav-don">Faire un don</a></li>
       </ul>
@@ -380,6 +382,52 @@
   </div>
 </section>
 
+<section id="galerie" class="section-galerie">
+  <div class="container">
+    <h2>Galerie Média</h2>
+
+    <div class="galerie-grid">
+      <img src="campex.jpg" alt="Camp national 2026">
+      <img src="fdl1.jpg" alt="Forum des leaders">
+      <img src="renas.jpg" alt="Retraite Nationale des Soeurs">
+      <img src="edif.jpg" alt="Adoration">
+      <img src="evan.jpg" alt="Enseignement biblique">
+      <img src="action.jpg" alt="Action sociale">
+    </div>
+  </div>
+</section>
+
+<section id="blog" class="section-blog">
+  <div class="container">
+    <h2>Blog & Méditations</h2>
+
+    <div class="blog-grid">
+
+      <div class="blog-card">
+        <img src="blog1.jpg" alt="Méditation">
+        <h4>Méditation du Mois</h4>
+        <p>Un message d'encouragement pour fortifier ta foi et ton engagement chrétien.</p>
+        <a href="#">Lire plus</a>
+      </div>
+
+      <div class="blog-card">
+        <img src="blog2.jpg" alt="Message du président">
+        <h4>Message du Président</h4>
+        <p>Une exhortation pour la jeunesse chrétienne de Côte d'Ivoire.</p>
+        <a href="#">Lire plus</a>
+      </div>
+
+      <div class="blog-card">
+        <img src="blog3.jpg" alt="Témoignage">
+        <h4>Témoignage</h4>
+        <p>Dieu agit puissamment dans la vie des jeunes engagés.</p>
+        <a href="#">Lire plus</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <section id="contact" class="section-contact">
     <div class="container">
       <h2>Contactez-Nous</h2>
@@ -688,6 +736,36 @@ window.addEventListener('scroll', () => {
   }
 });
 </script>
+
+<div class="lightbox" id="lightbox">
+  <span class="close-lightbox">&times;</span>
+  <img id="lightbox-img">
+</div>
+<script>
+const galerieImages = document.querySelectorAll('.galerie-grid img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const closeLightbox = document.querySelector('.close-lightbox');
+
+galerieImages.forEach(img => {
+  img.addEventListener('click', () => {
+    lightbox.style.display = 'flex';
+    lightboxImg.src = img.src;
+  });
+});
+
+closeLightbox.addEventListener('click', () => {
+  lightbox.style.display = 'none';
+});
+</script>
+
+<a href="https://wa.me/2250712089790" 
+   class="whatsapp-float" 
+   target="_blank">
+   <i class="fab fa-whatsapp"></i>
+</a>
+
+
 <footer class="footer">
   <p>© 2026 J-AEBECI | Tous droits réservés</p>
   
