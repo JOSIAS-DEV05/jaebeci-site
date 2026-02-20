@@ -526,3 +526,21 @@ section {
   border-radius:8px;
   cursor:pointer;
 }
+
+.section-stats{
+  background:#2c3e50;
+  color:white;
+  padding:80px 20px;
+  text-align:center;
+}
+
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:30px;
+}
+
+.stat h3{
+  font-size:40px;
+  color:#ff6600;
+}
