@@ -29,10 +29,10 @@
         <li><a href="#a-propos" class="nav-link">À propos</a></li>
         <li><a href="#historique" class="nav-link">Historique</a></li>
         <li><a href="#nos-presidents" class="nav-link">Présidents</a></li>
-        <li><a href="#Activites" class="nav-link">Activités</a></li>
+        <li><a href="#activites" class="nav-link">Activités</a></li>
         <li><a href="#statuts-reglements" class="nav-link">Statuts</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
-        <li><a href="#Dons" class="nav-link btn-nav-don">Faire un don</a></li>
+        <li><a href="#dons" class="nav-link btn-nav-don">Faire un don</a></li>
       </ul>
     </nav>
 
@@ -214,7 +214,7 @@
         </div>
       </section>      
 
-      <section id="Activites" class="section-activites">
+      <section id="activites" class="section-activites">
         <div class="container">
           <h2>Nos Activités</h2>
           <div class="activites-grid">
@@ -345,7 +345,7 @@
   </section>
   
 
-  <section id="Dons" class="section-dons">
+  <section id="dons" class="section-dons">
     <div class="don-container">
       <h2>Soutenez la JAEBECI</h2>
       <input type="number" id="montant" placeholder="Entrez le montant (XOF)" min="100" />
@@ -434,35 +434,38 @@ function makePayment() {
         });
     </script>  
     
-    <script>
-const sections=document.querySelectorAll("section");
-const observer=new IntersectionObserver(entries=>{
- entries.forEach(entry=>{
-  if(entry.isIntersecting){
-    entry.target.classList.add("show-section");
-  }
- });
-},{threshold:0.2});
-sections.forEach(sec=>observer.observe(sec));
-</script>
 
 <script>
-// Effet changement couleur au scroll
-window.addEventListener("scroll", function() {
-    const header = document.querySelector(".site-header");
-    header.classList.toggle("scrolled", window.scrollY > 50);
+// ================= SCROLL COMPLET NAVBAR =================
+
+const navLinks = document.querySelectorAll(".nav-link");
+const allSections = document.querySelectorAll("section");
+const header = document.querySelector(".site-header");
+
+// Scroll fluide au clic
+navLinks.forEach(link => {
+    link.addEventListener("click", function(e){
+        e.preventDefault();
+
+        const targetId = this.getAttribute("href");
+        const targetSection = document.querySelector(targetId);
+
+        window.scrollTo({
+            top: targetSection.offsetTop - 90,
+            behavior: "smooth"
+        });
+    });
 });
 
-// Surlignage automatique section active
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".nav-link");
-
+// Effet header au scroll
 window.addEventListener("scroll", () => {
+    header.classList.toggle("scrolled", window.scrollY > 50);
+
     let current = "";
 
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 120;
-        if (scrollY >= sectionTop) {
+    allSections.forEach(section => {
+        const sectionTop = section.offsetTop - 150;
+        if (window.scrollY >= sectionTop) {
             current = section.getAttribute("id");
         }
     });
