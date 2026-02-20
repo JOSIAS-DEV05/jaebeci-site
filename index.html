@@ -13,26 +13,31 @@
 </head>
 <body>
     <header class="site-header">
-        <div class="container">
-            <div class="logo">
-              <!--  <img src="logo.jpg" alt="Logo de l'association">-->
-              </div>              
-          <button class="menu-toggle" id="menu-toggle"></button>
-          <nav class="navbar" id="navbar">
-            <ul>
-              <li><a href="#accueil">Accueil</a></li>
-              <li><a href="#a-propos">À propos</a></li>
-              <li><a href="#historique">Historique</a></li>
-              <li><a href="#nos-presidents">Présidents</a></li>
-              <li><a href="#nos-activites">Activités</a></li>
-              <li><a href="#statuts-reglements">Statuts</a></li>
-              <li><a href="#contact">Contacts</a></li>
-              <li><a href="#Activites">Nos activités</a></li>
-              <li><a href="#Dons">Faire un don</a></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
+  <div class="container nav-container">
+    
+    <div class="logo">
+      <img src="logo.jpg" alt="Logo J-AEBECI">
+    </div>
+
+    <button class="menu-toggle" id="menu-toggle">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <nav class="navbar" id="navbar">
+      <ul>
+        <li><a href="#accueil" class="nav-link active">Accueil</a></li>
+        <li><a href="#a-propos" class="nav-link">À propos</a></li>
+        <li><a href="#historique" class="nav-link">Historique</a></li>
+        <li><a href="#nos-presidents" class="nav-link">Présidents</a></li>
+        <li><a href="#Activites" class="nav-link">Activités</a></li>
+        <li><a href="#statuts-reglements" class="nav-link">Statuts</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="#Dons" class="nav-link btn-nav-don">Faire un don</a></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
       
     <!--section de bienvenue de la page d'accueil-->
     <section class="banniere" id="accueil">
@@ -439,6 +444,36 @@ const observer=new IntersectionObserver(entries=>{
  });
 },{threshold:0.2});
 sections.forEach(sec=>observer.observe(sec));
+</script>
+
+<script>
+// Effet changement couleur au scroll
+window.addEventListener("scroll", function() {
+    const header = document.querySelector(".site-header");
+    header.classList.toggle("scrolled", window.scrollY > 50);
+});
+
+// Surlignage automatique section active
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".nav-link");
+
+window.addEventListener("scroll", () => {
+    let current = "";
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        if (scrollY >= sectionTop) {
+            current = section.getAttribute("id");
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active");
+        }
+    });
+});
 </script>
 
 <footer class="footer">
